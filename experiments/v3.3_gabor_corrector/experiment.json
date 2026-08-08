@@ -1,0 +1,11 @@
+{
+  "id": "v3.3_gabor_corrector",
+  "version": "v3.3",
+  "parent": "v3.1_damped_correction",
+  "title": "Gabor corrector",
+  "eligibility": "candidate-safe",
+  "entrypoint": "submission.py",
+  "family": "factored-state",
+  "description": "Uses a learned localized periodic activation only in the damped correction subsystem.",
+  "architecture": {"orbit_width": 128, "correction_width": 64, "workspace_width": 128, "corrector_activation": "gabor"}
+}

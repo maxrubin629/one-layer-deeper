@@ -1,0 +1,18 @@
+{
+  "id": "v2.2_real_bilinear",
+  "version": "v2.2",
+  "parent": "v1.2_persistent_context",
+  "title": "Real bilinear transition",
+  "eligibility": "candidate-safe",
+  "entrypoint": "submission.py",
+  "family": "function-class",
+  "description": "Tied learned real bilinear transition with no task-specific arithmetic.",
+  "architecture": {
+    "transition": "real_bilinear",
+    "context_injection": "persistent_n_field",
+    "depth_control": "learned_trajectory_readout",
+    "train_loops": 4,
+    "eval_loops": 64,
+    "width": 128
+  }
+}

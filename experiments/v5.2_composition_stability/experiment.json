@@ -1,0 +1,11 @@
+{
+  "id": "v5.2_composition_stability",
+  "version": "v5.2",
+  "parent": "v5.1_prompt_reconstruction",
+  "title": "Composition stability",
+  "eligibility": "candidate-safe",
+  "entrypoint": "submission.py",
+  "family": "loss",
+  "description": "Adds learned two-step composition consistency and soft orbit norm-growth penalties.",
+  "loss": {"primary": "sequence_smoothmax", "prompt_reconstruction_weight": 0.01, "composition_weight": 0.01, "norm_growth_weight": 0.001}
+}

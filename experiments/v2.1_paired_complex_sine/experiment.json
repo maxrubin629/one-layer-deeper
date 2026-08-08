@@ -1,0 +1,18 @@
+{
+  "id": "v2.1_paired_complex_sine",
+  "version": "v2.1",
+  "parent": "v1.2_persistent_context",
+  "title": "Paired-real complex sine transition",
+  "eligibility": "candidate-safe",
+  "entrypoint": "submission.py",
+  "family": "function-class",
+  "description": "Tied paired-real complex sine core with a learned complex-linear map.",
+  "architecture": {
+    "transition": "paired_complex_sine",
+    "complex_channels": 64,
+    "context_injection": "persistent_n_field",
+    "depth_control": "learned_trajectory_readout",
+    "train_loops": 4,
+    "eval_loops": 64
+  }
+}

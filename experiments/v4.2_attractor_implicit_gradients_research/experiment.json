@@ -1,0 +1,26 @@
+{
+  "id": "v4.2_attractor_implicit_gradients_research",
+  "version": "v4.2",
+  "parent": "v4_attractor_picard_corrector",
+  "title": "Attractor implicit-gradient research",
+  "eligibility": "research-only",
+  "entrypoint": "research.py",
+  "family": "attractor-research",
+  "description": "Compares initialization, conditioning, stopping, Picard/Anderson solving, and explicit, one-step, phantom, and implicit gradients on a tiny contractive system.",
+  "solver": {
+    "reference": "picard",
+    "comparison": "anderson",
+    "anderson_memory": 3
+  },
+  "metrics": [
+    "fixed_point_residual",
+    "iterations",
+    "jacobian_spectral_radius",
+    "proposal_to_equilibrium_distance",
+    "coordinate_accuracy",
+    "latency_ms",
+    "picard_anderson_distance",
+    "gradient",
+    "relative_error_to_explicit"
+  ]
+}

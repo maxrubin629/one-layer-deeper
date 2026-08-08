@@ -1,0 +1,11 @@
+{
+  "id": "v5_sequence_smoothmax_loss",
+  "version": "v5",
+  "parent": "v3.1_damped_correction",
+  "title": "Sequence smooth-max loss",
+  "eligibility": "candidate-safe",
+  "entrypoint": "submission.py",
+  "family": "loss",
+  "description": "Applies a normalized smooth maximum over valid digits and then examples.",
+  "loss": {"kind": "sequence_smoothmax", "token_temperature": 0.25, "batch_temperature": 0.5}
+}

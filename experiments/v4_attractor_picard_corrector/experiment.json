@@ -1,0 +1,11 @@
+{
+  "id": "v4_attractor_picard_corrector",
+  "version": "v4",
+  "parent": "v3.1_damped_correction",
+  "title": "Picard attractor corrector",
+  "eligibility": "candidate-safe",
+  "entrypoint": "submission.py",
+  "family": "attractor",
+  "description": "Refines only the transient correction with explicit proposal-conditioned Picard iterations.",
+  "solver": {"kind": "picard", "train_iterations": 3, "eval_iterations": 6, "persistent_proposal": true, "maximum_contraction": 0.4775}
+}

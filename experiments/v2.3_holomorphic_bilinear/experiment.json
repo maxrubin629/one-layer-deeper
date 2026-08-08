@@ -1,0 +1,18 @@
+{
+  "id": "v2.3_holomorphic_bilinear",
+  "version": "v2.3",
+  "parent": "v1.2_persistent_context",
+  "title": "Holomorphic bilinear transition",
+  "eligibility": "candidate-safe",
+  "entrypoint": "submission.py",
+  "family": "function-class",
+  "description": "Independent complex-linear factors and complex product without conjugate dependence.",
+  "architecture": {
+    "transition": "holomorphic_bilinear",
+    "complex_channels": 64,
+    "context_injection": "persistent_n_field",
+    "depth_control": "learned_trajectory_readout",
+    "train_loops": 4,
+    "eval_loops": 64
+  }
+}

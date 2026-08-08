@@ -1,0 +1,21 @@
+{
+  "id": "v4.4_discrete_cycle_solver_research",
+  "version": "v4.4",
+  "parent": "v4.2_attractor_implicit_gradients_research",
+  "title": "Discrete invariant-cycle solver research",
+  "eligibility": "research-only",
+  "entrypoint": "research.py",
+  "family": "attractor-research",
+  "description": "Jointly solves every state of finite invariant cycles on synthetic rotation and repeated-permutation dynamics.",
+  "solver": {
+    "type": "joint_lbfgs",
+    "cycle_lengths": [2, 4, 8],
+    "gauge": "anchored_first_state"
+  },
+  "metrics": [
+    "cycle_residual_rms",
+    "cycle_residual_max",
+    "anchor_error",
+    "closure_error"
+  ]
+}

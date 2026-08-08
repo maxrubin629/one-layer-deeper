@@ -1,0 +1,11 @@
+{
+  "id": "v3.1_damped_correction",
+  "version": "v3.1",
+  "parent": "v3_factored_orbit_workspace",
+  "title": "Damped correction state",
+  "eligibility": "candidate-safe",
+  "entrypoint": "submission.py",
+  "family": "factored-state",
+  "description": "Adds a damped oscillatory transient correction while leaving the orbit noncontractive.",
+  "architecture": {"orbit_width": 128, "correction_width": 64, "workspace_width": 128, "train_loops": 4, "eval_loops": 64, "correction_damping_max": 0.98}
+}

@@ -1,0 +1,11 @@
+{
+  "id": "v3.2_local_state_refiner",
+  "version": "v3.2",
+  "parent": "v3.1_damped_correction",
+  "title": "Local state refiner",
+  "eligibility": "candidate-safe",
+  "entrypoint": "submission.py",
+  "family": "factored-state",
+  "description": "Adds one bounded real residual refiner to the transient correction state.",
+  "architecture": {"orbit_width": 128, "correction_width": 64, "workspace_width": 128, "refiner_steps": 1, "refiner_scale": 0.1}
+}

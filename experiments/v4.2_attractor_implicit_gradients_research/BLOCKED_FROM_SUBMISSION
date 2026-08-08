@@ -1,0 +1,5 @@
+RESEARCH ONLY
+
+This directory studies solver and gradient estimators on a synthetic fixed-point
+system. It is not a benchmark submission and must never be rendered, copied, or
+packaged as submission.py.

@@ -1,0 +1,18 @@
+{
+  "id": "v1_tied_gelu",
+  "version": "v1",
+  "parent": "v0_baseline_adamw",
+  "title": "Tied GELU recurrence",
+  "eligibility": "candidate-safe",
+  "entrypoint": "submission.py",
+  "family": "recurrence",
+  "description": "Shared autonomous GELU transition with learned trajectory readout.",
+  "architecture": {
+    "transition": "tied_gelu",
+    "context_injection": "initial_only",
+    "depth_control": "learned_trajectory_readout",
+    "train_loops": 4,
+    "eval_loops": 64,
+    "width": 128
+  }
+}

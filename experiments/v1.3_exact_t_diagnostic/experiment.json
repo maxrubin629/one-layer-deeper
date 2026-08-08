@@ -1,0 +1,17 @@
+{
+  "id": "v1.3_exact_t_diagnostic",
+  "version": "v1.3",
+  "parent": "v1.2_persistent_context",
+  "title": "Exact-T recurrence diagnostic",
+  "eligibility": "research-only",
+  "entrypoint": "research.py",
+  "family": "diagnostic",
+  "description": "GPU-side decimal T parsing and per-example masked recurrence.",
+  "architecture": {
+    "transition": "tied_gelu",
+    "context_injection": "persistent_n_field",
+    "depth_control": "exact_t_gpu_parser",
+    "max_loops": 64,
+    "width": 128
+  }
+}

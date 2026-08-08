@@ -1,0 +1,16 @@
+{
+  "id": "v0_baseline_adamw",
+  "version": "v0",
+  "parent": null,
+  "title": "Published AdamW baseline",
+  "eligibility": "candidate-safe",
+  "entrypoint": "submission.py",
+  "family": "baseline",
+  "description": "Exact published one-block Transformer and AdamW baseline.",
+  "architecture": {
+    "transition": "single_transformer_block",
+    "train_loops": 1,
+    "eval_loops": 1,
+    "width": 128
+  }
+}

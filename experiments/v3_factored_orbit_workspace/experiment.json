@@ -1,0 +1,11 @@
+{
+  "id": "v3_factored_orbit_workspace",
+  "version": "v3",
+  "parent": "v2.3_holomorphic_bilinear",
+  "title": "Factored orbit and workspace",
+  "eligibility": "candidate-safe",
+  "entrypoint": "submission.py",
+  "family": "factored-state",
+  "description": "Separates a persistent learned bilinear orbit from an asymmetrically coupled token workspace.",
+  "architecture": {"orbit_width": 128, "workspace_width": 128, "train_loops": 4, "eval_loops": 64, "trajectory_readout": "learned_query"}
+}

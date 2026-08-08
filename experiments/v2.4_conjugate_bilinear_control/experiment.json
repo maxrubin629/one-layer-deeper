@@ -1,0 +1,18 @@
+{
+  "id": "v2.4_conjugate_bilinear_control",
+  "version": "v2.4",
+  "parent": "v2.3_holomorphic_bilinear",
+  "title": "Conjugate-dependent bilinear control",
+  "eligibility": "candidate-safe",
+  "entrypoint": "submission.py",
+  "family": "function-class",
+  "description": "Parameter-matched complex bilinear control with explicit conjugate dependence.",
+  "architecture": {
+    "transition": "conjugate_bilinear",
+    "complex_channels": 64,
+    "context_injection": "persistent_n_field",
+    "depth_control": "learned_trajectory_readout",
+    "train_loops": 4,
+    "eval_loops": 64
+  }
+}

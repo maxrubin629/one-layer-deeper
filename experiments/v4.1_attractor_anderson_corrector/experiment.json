@@ -1,0 +1,11 @@
+{
+  "id": "v4.1_attractor_anderson_corrector",
+  "version": "v4.1",
+  "parent": "v4_attractor_picard_corrector",
+  "title": "Anderson attractor corrector",
+  "eligibility": "candidate-safe",
+  "entrypoint": "submission.py",
+  "family": "attractor",
+  "description": "Uses differentiable memory-three Anderson mixing for the correction-only attractor.",
+  "solver": {"kind": "anderson", "memory": 3, "regularization": 0.0001, "train_iterations": 3, "eval_iterations": 6}
+}

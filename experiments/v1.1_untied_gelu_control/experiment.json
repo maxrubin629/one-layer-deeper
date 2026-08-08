@@ -1,0 +1,18 @@
+{
+  "id": "v1.1_untied_gelu_control",
+  "version": "v1.1",
+  "parent": "v1_tied_gelu",
+  "title": "Untied GELU recurrence control",
+  "eligibility": "candidate-safe",
+  "entrypoint": "submission.py",
+  "family": "recurrence",
+  "description": "Four independent GELU transitions cycled as a period-four inference-compute control.",
+  "architecture": {
+    "transition": "period_four_untied_gelu",
+    "context_injection": "initial_only",
+    "depth_control": "learned_trajectory_readout",
+    "train_loops": 4,
+    "eval_loops": 64,
+    "width": 128
+  }
+}

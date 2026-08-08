@@ -1,0 +1,11 @@
+{
+  "id": "v3.4_factored_exact_t_diagnostic",
+  "version": "v3.4",
+  "parent": "v3.1_damped_correction",
+  "title": "Factored exact-T diagnostic",
+  "eligibility": "research-only",
+  "entrypoint": "research.py",
+  "family": "diagnostic",
+  "description": "Parses T on-device and freezes each factored recurrent row after exactly T steps.",
+  "architecture": {"base": "v3.1_damped_correction", "maximum_steps": 64, "controller": "exact_gpu_decimal_parse"}
+}

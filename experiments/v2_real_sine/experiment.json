@@ -1,0 +1,18 @@
+{
+  "id": "v2_real_sine",
+  "version": "v2",
+  "parent": "v1.2_persistent_context",
+  "title": "Real sine transition",
+  "eligibility": "candidate-safe",
+  "entrypoint": "submission.py",
+  "family": "function-class",
+  "description": "Tied real sine-cosine transition with persistent learned N context.",
+  "architecture": {
+    "transition": "real_sine_cosine",
+    "context_injection": "persistent_n_field",
+    "depth_control": "learned_trajectory_readout",
+    "train_loops": 4,
+    "eval_loops": 64,
+    "width": 128
+  }
+}

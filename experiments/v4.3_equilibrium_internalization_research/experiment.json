@@ -1,0 +1,21 @@
+{
+  "id": "v4.3_equilibrium_internalization_research",
+  "version": "v4.3",
+  "parent": "v4.2_attractor_implicit_gradients_research",
+  "title": "Equilibrium internalization research",
+  "eligibility": "research-only",
+  "entrypoint": "research.py",
+  "family": "attractor-research",
+  "description": "Trains a proposal on a synthetic contraction and measures proposal-only, one-step, trained-depth, full-solve, and extra-depth behavior.",
+  "solver": {
+    "type": "picard",
+    "trained_iterations": 3,
+    "evaluation_iterations": [0, 1, 3, 25, 64]
+  },
+  "metrics": [
+    "proposal_to_equilibrium_mse",
+    "fixed_point_residual",
+    "sign_accuracy",
+    "latency_ms"
+  ]
+}

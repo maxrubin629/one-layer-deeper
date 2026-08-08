@@ -1,0 +1,11 @@
+{
+  "id": "v5.1_prompt_reconstruction",
+  "version": "v5.1",
+  "parent": "v5_sequence_smoothmax_loss",
+  "title": "Prompt reconstruction",
+  "eligibility": "candidate-safe",
+  "entrypoint": "submission.py",
+  "family": "loss",
+  "description": "Adds a small full-prompt reconstruction auxiliary to the sequence smooth-max objective.",
+  "loss": {"primary": "sequence_smoothmax", "prompt_reconstruction_weight": 0.01}
+}

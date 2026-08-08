@@ -1,0 +1,21 @@
+{
+  "id": "v4.5_analytic_invariant_orbit_research",
+  "version": "v4.5",
+  "parent": "v4.4_discrete_cycle_solver_research",
+  "title": "Analytic invariant-orbit research",
+  "eligibility": "research-only",
+  "entrypoint": "research.py",
+  "family": "attractor-research",
+  "description": "Fits a context-conditioned Fourier/Laurent trajectory by minimizing an invariance equation while testing transverse contraction.",
+  "solver": {
+    "type": "fourier_invariance_lbfgs",
+    "maximum_mode": 4,
+    "phase_gauge": "explicit_phase_coordinate"
+  },
+  "metrics": [
+    "invariance_residual_rms",
+    "invariance_residual_max",
+    "curve_rmse",
+    "empirical_transverse_rate"
+  ]
+}
