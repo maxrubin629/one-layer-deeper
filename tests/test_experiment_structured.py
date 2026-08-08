@@ -6,6 +6,7 @@ import inspect
 import json
 from pathlib import Path
 import unittest
+from unittest import mock
 
 import torch
 
@@ -221,6 +222,35 @@ class StructuredExperimentTests(unittest.TestCase):
         picard_solution = picard(p, h, c, 12)
         anderson_solution = anderson(p, h, c, 8)
         self.assertTrue(torch.allclose(picard_solution, anderson_solution, atol=2e-4, rtol=2e-4))
+
+    def test_anderson_solve_stays_float32_under_bf16_autocast(self) -> None:
+        anderson_module = load_source("v4.1_attractor_anderson_corrector")
+        device = torch.device(
+            "cuda"
+            if torch.cuda.is_available() and torch.cuda.is_bf16_supported()
+            else "cpu"
+        )
+        anderson = anderson_module.AndersonCorrector().to(device)
+        p = torch.randn(4, 128, device=device)
+        h = torch.randn(4, 7, 128, device=device)
+        c = torch.randn(4, 128, device=device)
+        solve_dtypes: list[tuple[torch.dtype, torch.dtype]] = []
+        solve = torch.linalg.solve
+
+        def checked_solve(left, right, *args, **kwargs):
+            solve_dtypes.append((left.dtype, right.dtype))
+            return solve(left, right, *args, **kwargs)
+
+        with mock.patch.object(torch.linalg, "solve", side_effect=checked_solve):
+            with torch.autocast(device_type=device.type, dtype=torch.bfloat16):
+                output = anderson(p, h, c, 3)
+
+        self.assertTrue(solve_dtypes)
+        self.assertEqual(
+            solve_dtypes,
+            [(torch.float32, torch.float32)] * len(solve_dtypes),
+        )
+        self.assertTrue(torch.isfinite(output).all().item())
 
     def test_smoothmax_excludes_padding_and_auxiliaries_are_differentiable(self) -> None:
         module = load_source("v5_sequence_smoothmax_loss")

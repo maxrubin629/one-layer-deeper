@@ -101,12 +101,14 @@ class AndersonCorrector(nn.Module):
                 continue
             x_stack, f_stack = torch.stack(history_x, 1), torch.stack(history_f, 1)
             residual = f_stack - x_stack
-            gram = torch.bmm(residual.float(), residual.float().transpose(1, 2))
-            identity = torch.eye(gram.shape[-1], device=gram.device, dtype=gram.dtype)[None]
-            gram = gram + 1e-4 * identity
-            ones = torch.ones(gram.shape[0], gram.shape[1], 1, device=gram.device, dtype=gram.dtype)
-            coefficients = torch.linalg.solve(gram, ones)
-            coefficients = coefficients / coefficients.sum(1, keepdim=True).clamp_min(1e-6)
+            with torch.autocast(device_type=residual.device.type, enabled=False):
+                residual_float = residual.float()
+                gram = torch.bmm(residual_float, residual_float.transpose(1, 2))
+                identity = torch.eye(gram.shape[-1], device=gram.device, dtype=gram.dtype)[None]
+                gram = gram + 1e-4 * identity
+                ones = torch.ones(gram.shape[0], gram.shape[1], 1, device=gram.device, dtype=gram.dtype)
+                coefficients = torch.linalg.solve(gram, ones)
+                coefficients = coefficients / coefficients.sum(1, keepdim=True).clamp_min(1e-6)
             e = (coefficients.to(f_stack.dtype) * f_stack).sum(1)
         return e
 
