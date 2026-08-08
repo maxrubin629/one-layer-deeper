@@ -1,0 +1,11 @@
+{
+  "id": "v3.7_last_state_readout_ablation",
+  "version": "v3.7",
+  "parent": "v3_factored_orbit_workspace",
+  "title": "Last-state readout ablation",
+  "eligibility": "candidate-safe",
+  "entrypoint": "submission.py",
+  "family": "factored-state-ablation",
+  "description": "Disables learned trajectory-depth selection while preserving the complete v3 query path and parameterization.",
+  "architecture": {"orbit_width": 128, "workspace_width": 128, "train_loops": 4, "eval_loops": 64, "trajectory_readout": "last_state", "matched_query_path": true}
+}

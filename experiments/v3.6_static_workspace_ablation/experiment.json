@@ -1,0 +1,11 @@
+{
+  "id": "v3.6_static_workspace_ablation",
+  "version": "v3.6",
+  "parent": "v3_factored_orbit_workspace",
+  "title": "Static workspace ablation",
+  "eligibility": "candidate-safe",
+  "entrypoint": "submission.py",
+  "family": "factored-state-ablation",
+  "description": "Disables only v3's recurrent token-workspace residual while retaining its state and compute path.",
+  "architecture": {"base": "v3_factored_orbit_workspace", "orbit_width": 128, "workspace_width": 128, "workspace_update_scale": 0.0, "train_loops": 4, "eval_loops": 64, "trajectory_readout": "learned_query"}
+}

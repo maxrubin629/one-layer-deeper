@@ -14,7 +14,9 @@ a mechanically blocked research program.
 3. `v2` compares periodic, real-bilinear, holomorphic, and conjugate-dependent
    transition classes.
 4. `v3` factors the state into a persistent orbit, transient correction, and
-   token workspace.
+   token workspace. The `v3-ablation-5m` matrix keeps `v0` and unchanged `v3`
+   as controls, then isolates orbit autonomy, recurrent workspace refinement,
+   and learned trajectory-depth selection.
 5. `v4` tests Attractor Models machinery only in the correction/workspace
    subsystem and separately houses paper-faithful research.
 6. `v5` tests exact-match-aware and auxiliary losses.

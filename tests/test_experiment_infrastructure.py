@@ -44,6 +44,18 @@ class RegistryTests(unittest.TestCase):
         for experiment_id in MATRICES["candidate-safe"]:
             self.assertTrue(get_experiment(experiment_id).is_candidate)
 
+    def test_v3_ablation_matrix_is_the_controlled_five_entry_batch(self) -> None:
+        self.assertEqual(
+            MATRICES["v3-ablation-5m"],
+            (
+                "v0_baseline_adamw",
+                "v3_factored_orbit_workspace",
+                "v3.5_workspace_feedback_control",
+                "v3.6_static_workspace_ablation",
+                "v3.7_last_state_readout_ablation",
+            ),
+        )
+
     def test_renderer_is_deterministic_and_hash_addressed(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
             first, first_hash = render_candidate(

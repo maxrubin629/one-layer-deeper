@@ -22,6 +22,19 @@ CANDIDATES = (
     "v3.1_damped_correction",
     "v3.2_local_state_refiner",
     "v3.3_gabor_corrector",
+    "v3.5_workspace_feedback_control",
+    "v3.6_static_workspace_ablation",
+    "v3.7_last_state_readout_ablation",
+    "v4_attractor_picard_corrector",
+    "v4.1_attractor_anderson_corrector",
+    "v5_sequence_smoothmax_loss",
+    "v5.1_prompt_reconstruction",
+    "v5.2_composition_stability",
+)
+CORRECTED_CANDIDATES = (
+    "v3.1_damped_correction",
+    "v3.2_local_state_refiner",
+    "v3.3_gabor_corrector",
     "v4_attractor_picard_corrector",
     "v4.1_attractor_anderson_corrector",
     "v5_sequence_smoothmax_loss",
@@ -185,8 +198,7 @@ class StructuredExperimentTests(unittest.TestCase):
                 self.assertTrue(torch.equal(evaluation_depths, control_encoding))
 
     def test_correction_damping_is_strict_and_orbit_is_separate(self) -> None:
-        corrected = CANDIDATES[1:]
-        for experiment_id in corrected:
+        for experiment_id in CORRECTED_CANDIDATES:
             with self.subTest(experiment_id=experiment_id):
                 model = load_source(experiment_id).SUBMISSION.build_model(self.model_spec)
                 rho = model.correction.correction_rho

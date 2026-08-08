@@ -1,0 +1,11 @@
+{
+  "id": "v3.5_workspace_feedback_control",
+  "version": "v3.5",
+  "parent": "v3_factored_orbit_workspace",
+  "title": "Workspace feedback control",
+  "eligibility": "candidate-safe",
+  "entrypoint": "submission.py",
+  "family": "factored-state-ablation",
+  "description": "Adds parameter-free masked token-workspace feedback to later orbit transitions.",
+  "architecture": {"base": "v3_factored_orbit_workspace", "orbit_width": 128, "workspace_width": 128, "train_loops": 4, "eval_loops": 64, "workspace_feedback_scale": 1.0, "trajectory_readout": "learned_query"}
+}

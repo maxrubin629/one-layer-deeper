@@ -73,6 +73,9 @@ EXPERIMENTS: tuple[ExperimentSpec, ...] = (
     _spec("v3.2_local_state_refiner", "v3.2", "Local state refiner", "v3.1_damped_correction", "candidate-safe", "submission.py", "factored-state", "Adds one learned real post-transition refiner."),
     _spec("v3.3_gabor_corrector", "v3.3", "Gabor corrector", "v3.1_damped_correction", "candidate-safe", "submission.py", "factored-state", "Uses a localized periodic activation only in the corrector."),
     _spec("v3.4_factored_exact_t_diagnostic", "v3.4", "Factored exact-T diagnostic", "v3.1_damped_correction", "research-only", "research.py", "diagnostic", "Exact-T diagnostic for the factored model."),
+    _spec("v3.5_workspace_feedback_control", "v3.5", "Workspace feedback control", "v3_factored_orbit_workspace", "candidate-safe", "submission.py", "factored-state-ablation", "Adds parameter-free token-workspace feedback to later orbit transitions."),
+    _spec("v3.6_static_workspace_ablation", "v3.6", "Static workspace ablation", "v3_factored_orbit_workspace", "candidate-safe", "submission.py", "factored-state-ablation", "Disables only the recurrent token-workspace residual."),
+    _spec("v3.7_last_state_readout_ablation", "v3.7", "Last-state readout ablation", "v3_factored_orbit_workspace", "candidate-safe", "submission.py", "factored-state-ablation", "Disables learned trajectory-depth selection while preserving its compute path."),
     _spec("v4_attractor_picard_corrector", "v4", "Picard attractor corrector", "v3.1_damped_correction", "candidate-safe", "submission.py", "attractor", "Explicit Picard refinement of the correction state."),
     _spec("v4.1_attractor_anderson_corrector", "v4.1", "Anderson attractor corrector", "v4_attractor_picard_corrector", "candidate-safe", "submission.py", "attractor", "Fixed-memory Anderson acceleration of the correction state."),
     _spec("v4.2_attractor_implicit_gradients_research", "v4.2", "Implicit-gradient attractor research", "v4_attractor_picard_corrector", "research-only", "research.py", "attractor-research", "Compares explicit, one-step, phantom, and implicit gradients."),
@@ -102,6 +105,13 @@ MATRICES: dict[str, tuple[str, ...]] = {
     "exact-t-diagnostics": (
         "v1.3_exact_t_diagnostic",
         "v3.4_factored_exact_t_diagnostic",
+    ),
+    "v3-ablation-5m": (
+        "v0_baseline_adamw",
+        "v3_factored_orbit_workspace",
+        "v3.5_workspace_feedback_control",
+        "v3.6_static_workspace_ablation",
+        "v3.7_last_state_readout_ablation",
     ),
     "attractor-research": tuple(
         spec.experiment_id
