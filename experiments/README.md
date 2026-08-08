@@ -8,7 +8,9 @@ a mechanically blocked research program.
 ## Scientific spine
 
 1. `v0` establishes the published baseline.
-2. `v1` isolates tied recurrence and persistent context.
+2. `v1` isolates tied recurrence and persistent context. `v1.4` separately
+   tests canonical full-sequence Universal Transformer recurrence instead of a
+   pooled-state recurrent MLP.
 3. `v2` compares periodic, real-bilinear, holomorphic, and conjugate-dependent
    transition classes.
 4. `v3` factors the state into a persistent orbit, transient correction, and
@@ -17,8 +19,10 @@ a mechanically blocked research program.
    subsystem and separately houses paper-faithful research.
 6. `v5` tests exact-match-aware and auxiliary losses.
 
-The orbit is never globally contracted. Candidate-safe transitions do not
-receive raw `T`, a loop index, or repeatedly injected `x`. Literal modular
+The orbit is never globally contracted. The autonomous orbit/correction
+transitions do not receive raw `T`, a loop index, or repeatedly injected `x`.
+The `v1.4` Universal Transformer control receives only a fixed sinusoidal
+recurrent-time encoding, never the task's requested `T`. Literal modular
 arithmetic, factorization, discrete logs, residue tables, fixed complex
 squaring, and intermediate modular-answer supervision are out of scope.
 

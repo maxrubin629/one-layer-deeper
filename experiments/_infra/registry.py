@@ -62,6 +62,7 @@ EXPERIMENTS: tuple[ExperimentSpec, ...] = (
     _spec("v1.1_untied_gelu_control", "v1.1", "Untied GELU control", "v1_tied_gelu", "candidate-safe", "submission.py", "recurrence", "Compute-matched untied control."),
     _spec("v1.2_persistent_context", "v1.2", "Persistent context", "v1_tied_gelu", "candidate-safe", "submission.py", "recurrence", "Persistent learned modulus context."),
     _spec("v1.3_exact_t_diagnostic", "v1.3", "Exact-T recurrence diagnostic", "v1.2_persistent_context", "research-only", "research.py", "diagnostic", "GPU-side exact-T masked recurrence diagnostic."),
+    _spec("v1.4_universal_transformer", "v1.4", "Fixed-depth Universal Transformer", "v0_baseline_adamw", "candidate-safe", "submission.py", "recurrence", "Shared full-sequence attention and feed-forward block with fixed recurrent-time encoding."),
     _spec("v2_real_sine", "v2", "Real sine transition", "v1.2_persistent_context", "candidate-safe", "submission.py", "function-class", "Real periodic recurrent transition."),
     _spec("v2.1_paired_complex_sine", "v2.1", "Paired-complex sine", "v1.2_persistent_context", "candidate-safe", "submission.py", "function-class", "Paired-real complex entire-function transition."),
     _spec("v2.2_real_bilinear", "v2.2", "Real bilinear transition", "v1.2_persistent_context", "candidate-safe", "submission.py", "function-class", "Learned real multiplicative transition."),

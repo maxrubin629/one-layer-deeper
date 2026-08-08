@@ -1,0 +1,20 @@
+{
+  "id": "v1.4_universal_transformer",
+  "version": "v1.4",
+  "parent": "v0_baseline_adamw",
+  "title": "Fixed-depth Universal Transformer",
+  "eligibility": "candidate-safe",
+  "entrypoint": "submission.py",
+  "family": "recurrence",
+  "description": "Shared full-sequence attention and feed-forward block with fixed recurrent-time encoding.",
+  "architecture": {
+    "transition": "tied_full_transformer_block",
+    "token_state": "full_sequence",
+    "time_encoding": "fixed_sinusoidal_each_step",
+    "halting": "fixed_depth_no_act",
+    "train_steps": 4,
+    "eval_steps": 64,
+    "width": 128,
+    "heads": 4
+  }
+}
